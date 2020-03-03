@@ -1,0 +1,74 @@
+==================
+item
+==================
+one
+---
+(outline 
+    (item 
+        (text)))
+
+==================
+one item per line
+==================
+one
+two
+three
+---
+(outline 
+    (item 
+        (text))
+    (item 
+        (text))
+    (item 
+        (text)))
+
+==================
+indented lines form nested lists
+==================
+one
+    two
+    three
+---
+(outline 
+    (item 
+        (text)
+        (item 
+            (text))
+        (item 
+            (text))
+        ))
+
+==================
+ignore empty lines
+==================
+
+one
+
+---
+(outline 
+    (item 
+        (text)))
+
+==================
+ignore leading whitespace in file
+==================
+    one
+---
+(outline 
+    (item 
+        (text)))
+
+==================
+ignore leading whitespace in file. Odd case... not sure I really want this behavior.
+==================
+        one
+    two
+three
+---
+(outline 
+    (item 
+        (text)
+        (item 
+            (text)))
+    (item 
+        (text)))

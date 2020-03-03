@@ -1,0 +1,18 @@
+{
+  "name": "tree-sitter-outline",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "tree-sitter test",
+    "generate": "tree-sitter generate"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nan": "^2.14.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.16.4"
+  }
+}

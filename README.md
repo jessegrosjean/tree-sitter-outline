@@ -1,0 +1,1 @@
+tree-sitter grammar that will parse outline structure from a white space indented text file. Work in progress.
