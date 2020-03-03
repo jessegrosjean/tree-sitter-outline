@@ -1,5 +1,11 @@
 ==================
-item
+empty
+==================
+---
+(outline)
+
+==================
+single item
 ==================
 one
 ---
@@ -23,7 +29,7 @@ three
         (text)))
 
 ==================
-indented lines form nested lists
+indented lines form nested items
 ==================
 one
     two
@@ -50,7 +56,7 @@ one
         (text)))
 
 ==================
-error on first line indentation
+error on first line indentation, parse item as if level 0
 ==================
     one
 ---
@@ -60,7 +66,7 @@ error on first line indentation
         (text)))
 
 ==================
-error on first line indentation, but recover rest of structure
+error on first line indentation, parse item as if level 0, recover rest of structure
 ==================
 
         one

@@ -98,6 +98,11 @@ namespace {
             return true;
           }
 
+          if (valid_symbols[START]) {
+            lexer->result_symbol = START;
+            return true;
+          }
+
           if (valid_symbols[NEWLINE]) {
             lexer->result_symbol = NEWLINE;
             return true;
@@ -111,11 +116,11 @@ namespace {
 
       uint32_t indent = spaces / INDENT_SPACES;
 
-      // Special case document start. First item should never be indented. If
-      // there is indentation then make sure to remove it from the indent stack.
-      // Goal is to error when indentation is at start of document, but recover
-      // rest of indentation structure from the document. The first item will be
-      // considered level zero in that error case.
+      // First item should never be indented. If there is indentation then make
+      // sure to remove it from the indent stack. Goal is to error when
+      // indentation in first item in document, but recover rest of indentation
+      // structure from the document. The first item will be considered level
+      // zero in that error case.
       if (valid_symbols[START]) {
         if (indent == 0) {
           lexer->result_symbol = START;
