@@ -7,6 +7,7 @@
 #include <iostream>
 
 enum TokenType {
+  START,
   INDENT,
   DEDENT,
   NEWLINE
@@ -19,7 +20,7 @@ namespace {
   using std::vector;
   using std::iswspace;
   using std::memcpy;
-  using namespace std;  
+  using namespace std;
 
   struct Scanner {
 
@@ -110,6 +111,21 @@ namespace {
 
       uint32_t indent = spaces / INDENT_SPACES;
 
+      // Special case document start. First item should never be indented. If
+      // there is indentation then make sure to remove it from the indent stack.
+      // Goal is to error when indentation is at start of document, but recover
+      // rest of indentation structure from the document. The first item will be
+      // considered level zero in that error case.
+      if (valid_symbols[START]) {
+        if (indent == 0) {
+          lexer->result_symbol = START;
+          return true;
+        } else {
+          indent_stack.pop_back();
+          return false;
+        }
+      }
+
       if (has_newline || start_column == 0) {
         if (indent > indent_stack.back() && valid_symbols[INDENT]) {
           indent_stack.push_back(indent);
@@ -170,7 +186,7 @@ extern "C" {
     const bool *valid_symbols
   ) {
     Scanner *scanner = static_cast<Scanner *>(payload);
-    return scanner->scan(lexer, valid_symbols);  
+    return scanner->scan(lexer, valid_symbols);
   }
 
 }

@@ -1,1 +1,5 @@
-tree-sitter grammar that will parse outline structure from a white space indented text file. Work in progress.
+tree-sitter-outline
+===========================
+Whitespace indented outline grammar for [tree-sitter][].
+
+[tree-sitter]: https://github.com/tree-sitter/tree-sitter

@@ -5,13 +5,14 @@ module.exports = grammar({
   inline: $ => [],
 
   externals: $ => [
+    $._start,
     $._indent,
     $._dedent,
     $._newline,
   ],
 
   rules: {
-    outline: $ => seq(optional(/\s*/), repeat($.item)),
+    outline: $ => seq(repeat($._newline), $._start, repeat($.item)),
 
     item: $ => seq(
       $.text,
@@ -23,5 +24,5 @@ module.exports = grammar({
     ),
 
     text: $ => seq(/\S/, /.*/, optional($._newline)),
-  }  
+  }
 });

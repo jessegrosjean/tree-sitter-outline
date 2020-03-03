@@ -50,22 +50,25 @@ one
         (text)))
 
 ==================
-ignore leading whitespace in file
+error on first line indentation
 ==================
     one
 ---
-(outline 
+(outline
+    (ERROR (UNEXPECTED ' '))
     (item 
         (text)))
 
 ==================
-ignore leading whitespace in file. Odd case... not sure I really want this behavior.
+error on first line indentation, but recover rest of structure
 ==================
+
         one
     two
 three
 ---
-(outline 
+(outline
+    (ERROR (UNEXPECTED '\n'))
     (item 
         (text)
         (item 
