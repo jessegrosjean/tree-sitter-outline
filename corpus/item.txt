@@ -10,8 +10,7 @@ single item
 one
 ---
 (outline 
-    (item 
-        (text)))
+    (item))
 
 ==================
 one item per line
@@ -21,12 +20,9 @@ two
 three
 ---
 (outline 
-    (item 
-        (text))
-    (item 
-        (text))
-    (item 
-        (text)))
+    (item)
+    (item)
+    (item))
 
 ==================
 indented lines form nested items
@@ -37,12 +33,9 @@ one
 ---
 (outline 
     (item 
-        (text)
-        (item 
-            (text))
-        (item 
-            (text))
-        ))
+        (item)
+        (item)        
+    ))
 
 ==================
 ignore empty lines
@@ -52,8 +45,7 @@ one
 
 ---
 (outline 
-    (item 
-        (text)))
+    (item))
 
 ==================
 error on first line indentation, parse item as if level 0
@@ -62,8 +54,7 @@ error on first line indentation, parse item as if level 0
 ---
 (outline
     (ERROR (UNEXPECTED ' '))
-    (item 
-        (text)))
+    (item))
 
 ==================
 error on first line indentation, parse item as if level 0, recover rest of structure
@@ -75,9 +66,6 @@ three
 ---
 (outline
     (ERROR (UNEXPECTED '\n'))
-    (item 
-        (text)
-        (item 
-            (text)))
-    (item 
-        (text)))
+    (item
+        (item))
+    (item))

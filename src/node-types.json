@@ -5,14 +5,10 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "item",
-          "named": true
-        },
-        {
-          "type": "text",
           "named": true
         }
       ]
@@ -32,10 +28,5 @@
         }
       ]
     }
-  },
-  {
-    "type": "text",
-    "named": true,
-    "fields": {}
   }
 ]
